@@ -1,0 +1,28 @@
+<div class="container">
+<h3>Users</h3>
+<div>
+	<a routerLink="/addtodo">
+		Add New User
+	</a>
+</div>
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Content</th>
+	<th>Actions</th>
+  </tr>
+  <tr *ngFor="let todo of todos">
+    <td>{{todo.id}}</td>
+    <td>{{todo.title}}</td>
+    <td>{{todo.content}}</td>
+	<td>
+		<a routerLink="/detail/{{todo.id}}">Detail</a> |
+
+		<a routerLink="/edit/{{todo.id}}">Edit</a> |
+
+		<button class="btn btn-danger" title="delete user" (click)="delete(todo)">X</button>
+	</td>
+  </tr>
+</table>
+</div>

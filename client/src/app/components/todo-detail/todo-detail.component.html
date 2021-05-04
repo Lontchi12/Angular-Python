@@ -1,0 +1,19 @@
+<!-- <p>todo-detail works!</p> -->
+<div class="container">
+<div *ngIf="todo" class="card">
+  <div class="m-4">
+  <h2 class="align-middle">{{todo.title | uppercase}} Details</h2>
+  <div><span>Id: </span>{{todo.id}}</div>
+  <div>
+    <p>
+		Name: {{todo.title}}
+    </p>
+	<p>
+		Email: {{todo.content}}
+    </p>
+  </div>
+</div>
+</div>
+<button class="btn btn-primary mt-4" (click)="goBack()">go back</button>
+
+</div>

@@ -1,11 +1,11 @@
-<div class="container">
-<h3>Users</h3>
+<div class="container mt-4">
+<h3>User</h3>
 <div>
 	<a routerLink="/addtodo">
-		Add New User
+		Add New Todo
 	</a>
 </div>
-<table class="table">
+<table class="table table-responsive">
   <tr>
     <th>ID</th>
     <th>Title</th>
@@ -13,16 +13,37 @@
 	<th>Actions</th>
   </tr>
   <tr *ngFor="let todo of todos">
-    <td>{{todo.id}}</td>
-    <td>{{todo.title}}</td>
-    <td>{{todo.content}}</td>
-	<td>
-		<a routerLink="/detail/{{todo.id}}">Detail</a> |
+    <td class="">{{todo.id}}</td>
+    <td class="">{{todo.title}}</td>
+    <td class="content">{{todo.content}}</td>
+    <td  class="" >
+      <a class="" style="color: #fff;"routerLink="/detail/{{todo.id}}"><button class="btn btn-success ml-4 " > Detail </button></a>
 
-		<a routerLink="/edit/{{todo.id}}">Edit</a> |
+      <a class="" style="color: #fff;" routerLink="/edit/{{todo.id}}"><button class="btn btn-primary ml-4  "> Edit</button></a>
 
-		<button class="btn btn-danger" title="delete user" (click)="delete(todo)">X</button>
-	</td>
+      <button class="btn btn-danger ml-4" title="delete user" (click)="delete(todo)">Delete</button>
+    </td>
   </tr>
 </table>
 </div>
+
+<!-- <div class="container">
+  <div class="row" *ngFor="let todo of todos">
+    <div class="col-md-1">
+      {{todo.id}}
+    </div>
+    <div class="col-md-2">
+      {{todo.title}}
+    </div>
+    <div class="col-md-6">
+      {{todo.content}}
+    </div>
+    <div class="col-md-3">
+      <a  style="color: #fff;"routerLink="/detail/{{todo.id}}"><button class="btn btn-success " > Detail </button></a>
+
+		<a style="color: #fff;" routerLink="/edit/{{todo.id}}"><button class="btn btn-primary ml-4"> Edit</button></a>
+
+		<button class="btn btn-danger ml-4" title="delete user" (click)="delete(todo)">Delete</button>
+    </div>
+  </div>
+</div> -->

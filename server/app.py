@@ -15,8 +15,8 @@ app=Flask(__name__)
 
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST'] = "localhost"
-app.config['MYSQL_DATABASE_USER'] = "root"
-app.config['MYSQL_DATABASE_PASSWORD'] = ""
+app.config['MYSQL_DATABASE_USER'] = "lontchi"
+app.config['MYSQL_DATABASE_PASSWORD'] = "1"
 app.config['MYSQL_DATABASE_DB'] = "flaskcrud"
 mysql.init_app(app)
 CORS(app)
@@ -47,9 +47,7 @@ def add_todo():
 		_content = _json['content']
 		# validate the received values
 		if _title and _content and request.method == 'POST':
-			#do not save password as a plain text
-			# _hashed_password = generate_password_hash(_password)
-			# save edits
+			
 			sql = "INSERT INTO todos_flask(todo_title, todo_content) VALUES(%s, %s)"
 			data = (_title, _content,)
 			conn = mysql.connect()
@@ -69,7 +67,7 @@ def add_todo():
 		cursor.close() 
 		conn.close()
 		
-@app.route('/todos')
+@app.route('/todos', methods=['GET'])
 def todos():
 	conn = None
 	cursor = None
@@ -116,9 +114,7 @@ def update_todo():
 		_content = _json['content']		
 		# validate the received values
 		if _title and _content and _id and request.method == 'PUT':
-			#do not save password as a plain text
-			# _hashed_password = generate_password_hash(_password)
-			# save edits
+			
 			sql = "UPDATE todos_flask SET todo_title=%s, todo_content=%s WHERE todo_id=%s"
 			data = (_title, _content, _id,)
 			conn = mysql.connect()

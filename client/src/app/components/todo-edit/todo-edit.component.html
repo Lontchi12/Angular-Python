@@ -1,17 +1,19 @@
 
+<div class="container mt-4">
 <div *ngIf="todo">
   <h2>{{todo.title | uppercase}} Details</h2>
   <div class=" container">
-  <div class="card">
+  <div class="card mt-4">
   <div class="m-4">
   <div><span>Id: </span>{{todo.id}}</div>
-  <form>
+  
     <label>Title:</label>
-		 <input class="form-control" [(ngModel)]="todo.title" placeholder="Enter Todo Title">
+  <input class="form-control" [(ngModel)]="todo.title" placeholder="Enter Todo Title">
 
 	  <label>Content: </label>
     <textarea name="" id="" cols="30" rows="10" class="form-control" [(ngModel)]="todo.content" placeholder="Enter Todo Content"></textarea>
-  </form>
+  
+  
 </div>
 </div>
   <button class="btn btn-primary mt-4 mr-4 " (click)="goBack()">go back</button>
@@ -19,4 +21,4 @@
   <button class="btn btn-success mt-4" (click)="save()">save</button>
 </div>
 </div>
-
+</div>
